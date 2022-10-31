@@ -1,0 +1,104 @@
+﻿<Window x:Class="WpfApp2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="460" Width="800">
+    <Grid>
+        <StackPanel MaxWidth="500">
+            <Grid Margin="0,20,0,10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <TextBox
+                    Name="TextFilePath"
+                    Grid.Column="0"
+                    Margin="5,0"
+                    Padding="10,5" 
+                    TextWrapping="Wrap" />
+                <Button
+                    Name="BtnOpen"
+                    Grid.Column="2"
+                    Content="Import"
+                    Margin="5,0"
+                    Padding="10,5"                          
+                    Click="BtnOpen_Click" />
+            </Grid>
+
+            <Grid Margin="0,0,0,10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <TextBox
+                    Name="TextSearch"
+                    Grid.Column="0"
+                    Margin="5,0"
+                    Padding="10,5" 
+                    TextWrapping="Wrap"
+                    KeyDown="TextSearch_KeyDown" />
+                <Button
+                    Name="BtnSearch"
+                    Grid.Column="1"
+                    Content="Search"
+                    Margin="5,0,5,0"
+                    Padding="10,5" 
+                    Click="BtnSearch_Click" Height="28" VerticalAlignment="Bottom" />
+            </Grid>
+
+
+            <Grid Margin="0,0,0,20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" Margin="5,0">
+                    <TextBlock 
+                        Text="FILTER BY REGION:" 
+                        Margin="0,0,0,5" />
+                    <ComboBox
+                        SelectedIndex="0"
+                        Height="30"
+                        Padding="5" >
+                        <ComboBoxItem>---</ComboBoxItem>
+                        <ComboBoxItem>East</ComboBoxItem>
+                        <ComboBoxItem>Central</ComboBoxItem>
+                        <ComboBoxItem>West</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel Grid.Column="1" Margin="5,0" >
+                    <TextBlock 
+                        Text="FROM:"
+                        Margin="0,0,0,5" />
+                    <DatePicker Padding="5" />
+                </StackPanel>
+                <StackPanel Grid.Column="2" Margin="5,0">
+                    <TextBlock 
+                        Text="TO:"
+                        Margin="0,0,0,5" />
+                    <DatePicker Padding="5" />
+                </StackPanel>
+            </Grid>
+
+            <!--<TextBlock
+                FontSize="20"
+                Text="No excel file imported." 
+                Margin="5,50,0,0" 
+                TextAlignment="Center" />-->
+            <DataGrid
+                AutoGenerateColumns="True"
+                Name="DataGrid"
+                Height="230"
+                Margin="5,0" 
+                CanUserAddRows="False"
+                CanUserDeleteRows="False" />
+        </StackPanel>
+    </Grid>
+</Window>
